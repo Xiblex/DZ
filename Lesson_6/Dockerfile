@@ -16,7 +16,7 @@ RUN mkdir /boxfuse
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxfuse
 #building war file an cp to tomcat
 RUN mvn package -f /boxfuse/pom.xml
-RUN cp /boxfuse/target/hello-1.0.war /var/lib/tomcat9/webapps/
+RUN cp /boxfuse/target/hello-1.0.war /usr/local/tomcat/webapps/
 # run cmd tomcat
 #CMD service tomcat9 start
 CMD ["/usr/local/tomcat/bin/catalina.sh","run"]
