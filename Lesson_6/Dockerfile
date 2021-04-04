@@ -13,4 +13,5 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxf
 RUN mvn package -f /boxfuse/pom.xml
 RUN cp /boxfuse/target/hello-1.0.war /var/lib/tomcat9/webapps/
 # run cm tomcat from oficial dockerfile
-CMD ["/usr/share/tomcat9/bin/catalina.sh", "run"]
+CMD service tomcat9 start
+#CMD ["/usr/share/tomcat9/bin/catalina.sh", "run"]
