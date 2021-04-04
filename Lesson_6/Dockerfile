@@ -5,7 +5,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 EXPOSE 8080
 #install packages
 RUN apt-get update
-RUN apt-get install tomcat9 maven git -y
+RUN apt-get install openjdk-11-jre-headless tomcat9 maven git -y
 #creat folder for build and download app
 RUN mkdir /boxfuse
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxfuse
