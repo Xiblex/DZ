@@ -7,5 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
 ADD requirements.txt /tmp/
 WORKDIR /tmp/
 RUN pip install -qr requirements.txt
-ADD app.py /opt/webapp
-CMD python /opt/webapp/app.py
+WORKDIR /opt/webapp
+ADD app.py
+CMD python app.py
