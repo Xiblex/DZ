@@ -8,5 +8,5 @@ ADD ./requirements.txt /tmp/
 WORKDIR /tmp/
 RUN pip install -qr requirements.txt
 WORKDIR /opt/webapp
-ADD ./app.py
+ADD ./app.py /opt/webapp
 CMD python app.py
