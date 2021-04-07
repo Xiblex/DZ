@@ -7,3 +7,4 @@ services:
      - /etc/share:/boxfuse/boxfuse-sample-java-war-hello/target
 #  buildtomcat:
 #    build: buildtomcat
+    entrypoint: /bin/true
