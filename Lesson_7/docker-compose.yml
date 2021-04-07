@@ -3,3 +3,7 @@ version: '3'
 services:
   buildapp:
     build: buildapp
+  volumes:
+    - /etc/share:/boxfuse/boxfuse-sample-java-war-hello/target
+#  buildtomcat:
+#    build: buildtomcat
