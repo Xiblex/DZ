@@ -7,5 +7,5 @@ RUN apt-get update \
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxfuse \
   && mvn package -f /boxfuse/pom.xml
 #building war file
-RUN mvn package
+RUN mvn package -f /boxfuse/pom.xml
 CMD tail -f /dev/null
