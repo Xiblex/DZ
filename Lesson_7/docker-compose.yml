@@ -6,16 +6,12 @@ services:
     volumes:
      - /etc/share:/boxfuse/boxfuse-sample-java-war-hello/target
 
-  prod:
+  buildtomcat:
     build: buildtomcat
     volumes:
-      - type: volume
-        source: /etc/share
-        target: /usr/local/tomcat/webapps
-      depends_on:
-         - build
-      ports:
-         - "8080:8080"
+     - /etc/share:/usr/local/tomcat/webapps
+    ports:
+     - "8080:8080"
 
 #  volumes:
 #     share:
