@@ -1,7 +1,6 @@
 FROM openjdk:8-jre-alpine
     #Install tomcat
-#WORKDIR /usr/local/tomcat
-
+WORKDIR /usr/local/tomcat
 
 RUN wget https://mirrors.nav.ro/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz -O /tmp/apache-tomcat-8.5.65.tar.gz
 WORKDIR /tmp
