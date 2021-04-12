@@ -3,7 +3,7 @@ FROM openjdk:8-jre-alpine
 #WORKDIR /usr/local/tomcat
 
 
-RUN wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.44/bin/apache-tomcat-9.0.44.tar.gz -O /tmp/tomcat.tar.gz
+RUN wget https://mirrors.nav.ro/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz -O /tmp/apache-tomcat-8.5.65.tar.gz
 WORKDIR /tmp
 RUN tar xvfz tomcat.tar.gz \
     && cp -Rv /tmp/apache-tomcat-9.0.44/* /usr/local/tomcat/
