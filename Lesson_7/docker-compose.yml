@@ -4,12 +4,12 @@ services:
   buildapp:
     build: buildapp
     volumes:
-     - /etc/share:/boxfuse/boxfuse-sample-java-war-hello/target
+     - /share:/boxfuse/boxfuse-sample-java-war-hello/target
 
 #  buildtomcat:
 #    build: buildtomcat
 #    volumes:
-#     - /etc/share:/usr/local/tomcat/webapps
+#     - /share:/usr/local/tomcat/webapps
 #    ports:
 #     - "8080:8080"
 
