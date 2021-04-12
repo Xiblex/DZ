@@ -8,4 +8,4 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxf
   && mvn package -f /boxfuse/pom.xml
 #building war file
 RUN mvn package -f /boxfuse/pom.xml
-#CMD tail -f /dev/null
+CMD tail -f /dev/null
