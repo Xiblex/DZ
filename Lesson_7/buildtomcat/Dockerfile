@@ -1,4 +1,4 @@
-FROM 17-jdk-alpine3.13
+FROM openjdk:8-jre-alpine
 RUN apt-get update \
     && apt-get install -y --no-install-recommends wget \
     && rm -rf /var/lib/apt/lists/*
