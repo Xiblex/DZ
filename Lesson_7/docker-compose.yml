@@ -10,8 +10,8 @@ volumes:
 services:
   buildapp:
     build: buildapp
-    volumes:
-      - share:/boxfuse/target
+#    volumes:
+#      - share:/boxfuse/target
 #      - /home/inst1/lesson_6/Lesson_7/share:/boxfuse/target
 
 #  buildtomcat:
