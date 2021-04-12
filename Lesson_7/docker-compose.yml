@@ -1,10 +1,12 @@
 ---
 version: '3'
+volumes:
+  share:
 services:
   buildapp:
     build: buildapp
     volumes:
-      - /etc/share:/boxfuse/target
+      - share:/boxfuse/target
 
 #  buildtomcat:
 #    build: buildtomcat
