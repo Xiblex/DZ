@@ -4,7 +4,7 @@ services:
   buildapp:
     build: buildapp
     volumes:
-     - /share:/boxfuse/boxfuse-sample-java-war-hello/target
+     - /share:/boxfuse/target
 
 #  buildtomcat:
 #    build: buildtomcat
