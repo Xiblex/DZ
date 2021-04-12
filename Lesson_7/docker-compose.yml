@@ -4,7 +4,7 @@ services:
   buildapp:
     build: buildapp
     volumes:
-     - /share:/boxfuse/target
+     - /etc/share:/boxfuse/target
 
 #  buildtomcat:
 #    build: buildtomcat
