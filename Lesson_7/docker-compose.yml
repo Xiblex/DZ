@@ -2,11 +2,16 @@
 version: '3'
 volumes:
   share:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/inst1/lesson_6/Lesson_7/share
 services:
   buildapp:
     build: buildapp
     volumes:
-      - ./share:/boxfuse/target
+      - share:/boxfuse/target
 
 #  buildtomcat:
 #    build: buildtomcat
