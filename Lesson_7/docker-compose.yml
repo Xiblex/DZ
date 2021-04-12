@@ -14,12 +14,12 @@ services:
       - share:/boxfuse/target
 #      - /home/inst1/lesson_6/Lesson_7/share:/boxfuse/target
 
-#  buildtomcat:
-#    build: buildtomcat
-#    volumes:
-#     - /share:/usr/local/tomcat/webapps
-#    ports:
-#     - "8080:8080"
+  buildtomcat:
+    build: buildtomcat
+    volumes:
+     - /share:/usr/local/tomcat/webapps
+    ports:
+     - "8080:8080"
 
 #  volumes:
 #     share:
