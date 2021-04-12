@@ -17,7 +17,7 @@ services:
   buildtomcat:
     build: buildtomcat
     volumes:
-     - /share:/usr/local/tomcat/webapps
+     - share:/usr/local/tomcat/webapps
     ports:
      - "8080:8080"
 
