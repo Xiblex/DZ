@@ -6,3 +6,7 @@
  tasks:
    - name: install penjdk-11-jre-headless maven git
      apt:
+       pkg:
+         - penjdk-11-jre-headless
+         - maven
+         - git
