@@ -30,8 +30,8 @@
          #Git
     - name: git add
       shell: "git add ."
-        args:
-          chdir: /boxfuse/target
+      args:
+        chdir: /boxfuse/target
     - name: git remote add
       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
         args:
