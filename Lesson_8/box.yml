@@ -45,7 +45,7 @@
       args:
         chdir: /boxfuse/target
     - name: Git sub directory
-      shell: echo "Lesson_8/war/* >> .git/info/sparse-checkout
+      shell: echo "Lesson_8/war/*" >> .git/info/sparse-checkout
       args:
         chdir: /boxfuse/target
 #   - name: Git - commiting
