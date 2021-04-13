@@ -59,6 +59,5 @@
         responses:
           Username: "{{ githubuser }}" # Username is a regex
           Password: "{{ githubpassword }}" # Password is a regex
-        no_log: true
-      chdir: "/boxfuse/target"
+        chdir: "/boxfuse/target"
 
