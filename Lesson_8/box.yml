@@ -33,6 +33,7 @@
       args:
         chdir: /boxfuse/target
     - name: git remote add
+      ignore_errors: True
       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
       args:
         chdir: /boxfuse/target
