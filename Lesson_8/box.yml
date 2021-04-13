@@ -30,9 +30,9 @@
       shell: "mvn package -f /boxfuse/pom.xml"
          #Git
     - name: git init
-        shell: "git init"
-        args:
-          chdir: /boxfuse/target
+      shell: "git init"
+      args:
+        chdir: /boxfuse/target
     - name: git add
       shell: "git add ."
       args:
