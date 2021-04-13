@@ -29,6 +29,10 @@
     - name: Maven package
       shell: "mvn package -f /boxfuse/pom.xml"
          #Git
+    - name: git init
+        shell: "git init"
+        args:
+          chdir: /boxfuse/target
     - name: git add
       shell: "git add ."
       args:
@@ -36,10 +40,6 @@
     - name: git remote add
       ignore_errors: True
       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
-      args:
-        chdir: /boxfuse/target
-    - name: git init
-      shell: "git init"
       args:
         chdir: /boxfuse/target
     - name: git config core.sparsecheckout true
