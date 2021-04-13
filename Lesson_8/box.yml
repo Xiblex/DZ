@@ -34,20 +34,20 @@
         chdir: /boxfuse/target
     - name: git remote add
       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
-        args:
-          chdir: /boxfuse/target
+      args:
+        chdir: /boxfuse/target
     - name: git init
       shell: "git init"
-        args:
-          chdir: /boxfuse/target
+      args:
+        chdir: /boxfuse/target
     - name: git config core.sparsecheckout true
       shell: "git config core.sparsecheckout true"
-        args:
-          chdir: /boxfuse/target
+      args:
+        chdir: /boxfuse/target
     - name: Git sub directory
       shell: echo "Lesson_8/war/* >> .git/info/sparse-checkout
-        args:
-          chdir: /boxfuse/target
+      args:
+        chdir: /boxfuse/target
 #   - name: Git - commiting
 #       shell: git init
 #       args:
