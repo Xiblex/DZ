@@ -13,12 +13,13 @@
       private: yes
 
   tasks:
-    - name: install wget maven git
+    - name: install wget maven git python-pexpect
       apt:
         pkg:
           - wget
           - maven
           - git
+          - python-pexpect
     - name: git clone project from github
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
