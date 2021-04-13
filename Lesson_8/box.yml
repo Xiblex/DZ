@@ -16,7 +16,6 @@
     - name: install penjdk-11-jre-headless maven git
       apt:
         pkg:
-          - penjdk-11-jre-headless
           - maven
           - git
     - name: git clone project from github
