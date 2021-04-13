@@ -30,22 +30,36 @@
          cmd: mvn package -f /boxfuse/pom.xml
          #Git
    - name: git add
-       shell: "git add *"
+       shell: "git add ."
+         args:
+           chdir: /boxfuse/target
+   - name: git remote add
+       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
+         args:
+           chdir: /boxfuse/target
+   - name: git init
+       shell: "git init"
+         args:
+           chdir: /boxfuse/target
+   - name: git config core.sparsecheckout true
+       shell: "git config core.sparsecheckout true"
          args:
            chdir: /boxfuse/target
    - name: Git sub directory
-       shell: echo Lesson_8/war >> .git/info/sparse-checkout
+       shell: echo "Lesson_8/war/* >> .git/info/sparse-checkout
        args:
          chdir: /boxfuse/target
-   - name: Git - commiting
-       shell: git commit -m "Ansible Backup"
-       args:
-         chdir: /boxfuse/target
+#   - name: Git - commiting
+#       shell: git init
+#       args:
+#         chdir: /boxfuse/target
    - name: Git - push
        expect:
-         command: git push https://github.com/Xiblex/DZ.git
+         command: git push
          chdir: "/boxfuse/target"
          responses:
            Username: "{{ githubuser }}" # Username is a regex
            Password: "{{ githubpassword }}" # Password is a regex
        no_log: true
+
+---
