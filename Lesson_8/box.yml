@@ -50,10 +50,10 @@
       shell: echo "Lesson_8/war/*" >> .git/info/sparse-checkout
       args:
         chdir: /boxfuse/target
-#   - name: Git - commiting
-#       shell: git init
-#       args:
-#         chdir: /boxfuse/target
+    - name: Git - commiting
+        shell: git commit -m "new"
+        args:
+          chdir: /boxfuse/target
     - name: Git - push
       expect:
         command: git push origin master
