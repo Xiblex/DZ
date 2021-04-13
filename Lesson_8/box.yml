@@ -61,4 +61,3 @@
           Password: "{{ githubpassword }}" # Password is a regex
         no_log: true
 
----
