@@ -1,65 +1,65 @@
 ---
 
--name: Build war
- hosts: build
- become: yes
+- name: Build war
+  hosts: build
+  become: yes
 
- vars_prompt:
-   - name: "githubuser"
-     prompt: "Enter your github username"
-     private: no
-   - name: "githubpassword"
-     prompt: "Enter your github password"
-     private: yes
+  vars_prompt:
+    - name: "githubuser"
+      prompt: "Enter your github username"
+      private: no
+    - name: "githubpassword"
+      prompt: "Enter your github password"
+      private: yes
 
- tasks:
-   - name: install penjdk-11-jre-headless maven git
-     apt:
-       pkg:
-         - penjdk-11-jre-headless
-         - maven
-         - git
-   - name: git clone project from github
-     git:
-       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-       dest: /boxfuse
-       version: master
+  tasks:
+    - name: install penjdk-11-jre-headless maven git
+      apt:
+        pkg:
+          - penjdk-11-jre-headless
+          - maven
+          - git
+    - name: git clone project from github
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /boxfuse
+        version: master
 #       accept_hostkey: yes
-   - name: Maven package
-       shell:
-         cmd: mvn package -f /boxfuse/pom.xml
+    - name: Maven package
+        shell:
+          cmd: mvn package -f /boxfuse/pom.xml
          #Git
-   - name: git add
-       shell: "git add ."
-         args:
-           chdir: /boxfuse/target
-   - name: git remote add
-       shell: "git remote add origin https://github.com/Xiblex/DZ.git"
-         args:
-           chdir: /boxfuse/target
-   - name: git init
-       shell: "git init"
-         args:
-           chdir: /boxfuse/target
-   - name: git config core.sparsecheckout true
-       shell: "git config core.sparsecheckout true"
-         args:
-           chdir: /boxfuse/target
-   - name: Git sub directory
-       shell: echo "Lesson_8/war/* >> .git/info/sparse-checkout
-       args:
-         chdir: /boxfuse/target
+    - name: git add
+        shell: "git add ."
+          args:
+            chdir: /boxfuse/target
+    - name: git remote add
+        shell: "git remote add origin https://github.com/Xiblex/DZ.git"
+          args:
+            chdir: /boxfuse/target
+    - name: git init
+        shell: "git init"
+          args:
+            chdir: /boxfuse/target
+    - name: git config core.sparsecheckout true
+        shell: "git config core.sparsecheckout true"
+          args:
+            chdir: /boxfuse/target
+    - name: Git sub directory
+        shell: echo "Lesson_8/war/* >> .git/info/sparse-checkout
+        args:
+          chdir: /boxfuse/target
 #   - name: Git - commiting
 #       shell: git init
 #       args:
 #         chdir: /boxfuse/target
-   - name: Git - push
-       expect:
-         command: git push
-         chdir: "/boxfuse/target"
-         responses:
-           Username: "{{ githubuser }}" # Username is a regex
-           Password: "{{ githubpassword }}" # Password is a regex
-       no_log: true
+    - name: Git - push
+        expect:
+          command: git push
+          chdir: "/boxfuse/target"
+          responses:
+            Username: "{{ githubuser }}" # Username is a regex
+            Password: "{{ githubpassword }}" # Password is a regex
+        no_log: true
 
 ---
