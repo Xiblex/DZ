@@ -13,9 +13,10 @@
       private: yes
 
   tasks:
-    - name: install penjdk-11-jre-headless maven git
+    - name: install wget maven git
       apt:
         pkg:
+          - wget
           - maven
           - git
     - name: git clone project from github
