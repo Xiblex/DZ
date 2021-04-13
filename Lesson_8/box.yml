@@ -10,3 +10,29 @@
          - penjdk-11-jre-headless
          - maven
          - git
+   - name: git clone project from github
+     git:
+       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+       dest: /boxfuse
+       version: master
+#       accept_hostkey: yes
+   - name: Maven package
+       shell:
+         cmd: mvn package -f /boxfuse/pom.xml
+         #Git
+   - name: git add
+       shell: "git add *"
+         args:
+           chdir: /boxfuse/target
+   - name: Git sub directory
+       shell: echo Lesson_8/war >> .git/info/sparse-checkout
+       args:
+         chdir: /boxfuse/target
+   - name: Git - commiting
+       shell: git commit -m "Ansible Backup"
+       args:
+         chdir: /boxfuse/target
+   - name: Git - push
+       shell: git push
+       args:
+         chdir: /boxfuse/target
