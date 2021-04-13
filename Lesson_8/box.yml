@@ -53,12 +53,12 @@
 #       args:
 #         chdir: /boxfuse/target
     - name: Git - push
-        expect:
-          command: git push
-          chdir: "/boxfuse/target"
-          responses:
-            Username: "{{ githubuser }}" # Username is a regex
-            Password: "{{ githubpassword }}" # Password is a regex
+      expect:
+        command: git push
+        chdir: "/boxfuse/target"
+        responses:
+          Username: "{{ githubuser }}" # Username is a regex
+          Password: "{{ githubpassword }}" # Password is a regex
         no_log: true
 
 ---
