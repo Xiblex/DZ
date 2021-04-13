@@ -3,6 +3,15 @@
 -name: Build war
  hosts: build
  become: yes
+
+ vars_prompt:
+   - name: "githubuser"
+     prompt: "Enter your github username"
+     private: no
+   - name: "githubpassword"
+     prompt: "Enter your github password"
+     private: yes
+
  tasks:
    - name: install penjdk-11-jre-headless maven git
      apt:
@@ -33,6 +42,10 @@
        args:
          chdir: /boxfuse/target
    - name: Git - push
-       shell: git push
-       args:
-         chdir: /boxfuse/target
+       expect:
+         command: git push https://github.com/Xiblex/DZ.git
+         chdir: "/boxfuse/target"
+         responses:
+           Username: "{{ githubuser }}" # Username is a regex
+           Password: "{{ githubpassword }}" # Password is a regex
+       no_log: true
