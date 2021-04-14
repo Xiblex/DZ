@@ -28,28 +28,32 @@
 #       accept_hostkey: yes
     - name: Maven package
       shell: "mvn package -f /boxfuse/pom.xml"
+
          #Git
     - name: git init
       shell: "git init"
       args:
         chdir: /boxfuse/target
+
     - name: git add
       shell: "git add ."
       args:
         chdir: /boxfuse/target
+
     - name: git remote add
       ignore_errors: True
-      shell: "git remote add origin https://github.com/Xiblex/DZ.git"
+      shell: "git remote add origin https://github.com/Xiblex/wartest"
       args:
         chdir: /boxfuse/target
-    - name: git config core.sparsecheckout true
-      shell: "git config core.sparsecheckout true"
-      args:
-        chdir: /boxfuse/target
-    - name: Git sub directory
-      shell: echo "Lesson_8/war/*" >> .git/info/sparse-checkout
-      args:
-        chdir: /boxfuse/target
+
+#    - name: git config core.sparsecheckout true
+#      shell: "git config core.sparsecheckout true"
+#      args:
+#        chdir: /boxfuse/target
+#    - name: Git sub directory
+#      shell: echo "Lesson_8/war/*" >> .git/info/sparse-checkout
+#      args:
+#        chdir: /boxfuse/target
     - name: Git - commiting
       shell: git commit -m "new"
       args:
