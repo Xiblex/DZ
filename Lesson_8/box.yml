@@ -66,3 +66,19 @@
           Password: "{{ githubpassword }}" # Password is a regex
         chdir: "/boxfuse/target"
 
+- name: ProdTomcat
+  hosts: prod
+  become: yes
+
+  tasks:
+  - name: Ensure tomcat is present
+    apt:
+      name: tomcat9
+      state: present
+      update_cache: yes
+
+  - name: Download war
+    get_url:
+      url: https://github.com/Xiblex/wartest/raw/master/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+#https://github.com/Xiblex/wartest/raw/master/hello-1.0.war
