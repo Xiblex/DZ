@@ -6,3 +6,18 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ packages }}"
+
+- name: git clone project from github
+  git:
+    repo: "{{ boxrepo }}"
+    dest: "{{ boxdir }}"
+    version: master
+
+- name: Maven package
+    shell: "mvn package -f /{{ boxdir }}/pom.xml"
+
+- name: Copy war file to directory role web
+    fetch:
+      src: "{{ boxdir }}/target/hello-1.0.war"
+      dest: ./hello-1.0.war
+      flat: yes
