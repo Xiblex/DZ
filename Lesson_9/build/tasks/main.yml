@@ -4,5 +4,5 @@
 - name: install packages
   apt:
     name: "{{ item }}"
-    state: presents
+  state: present
   with_items: "{{ packages }}"
