@@ -1,2 +1,3 @@
 ---
 # vars file for web
+tomcatdir: /var/lib/tomcat9/webapps/
