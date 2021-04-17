@@ -1,2 +1,13 @@
 ---
 # tasks file for web
+
+- name: ProdTomcat
+  hosts: prod
+  become: yes
+
+  tasks:
+  - name: Ensure tomcat is present
+    apt: name=tomcat9 state=present
+
+  - name: Copy war file
+    copy: src=hello-1.0.war dest="{{ tomcatdir }}"

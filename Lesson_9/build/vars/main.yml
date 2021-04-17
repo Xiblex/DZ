@@ -3,5 +3,6 @@
 
 boxrepo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 boxdir: /boxfuse
+tomcatdir: /var/lib/tomcat9/webapps/
 
 packages: [ 'wget' , 'maven' , 'git' , 'python-pexpect']
