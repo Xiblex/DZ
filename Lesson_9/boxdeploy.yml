@@ -7,7 +7,7 @@
    - build
 
 - name: web_server configuration
-  hosts: web
+  hosts: prod
   become: yes
 
   roles:
