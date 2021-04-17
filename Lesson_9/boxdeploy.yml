@@ -1,7 +1,7 @@
 ---
 - name: build_server configuration
   hosts: build
-  becom: yes
+  become: yes
 
   roles:
    - build
