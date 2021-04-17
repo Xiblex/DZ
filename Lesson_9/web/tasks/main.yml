@@ -1,11 +1,5 @@
 ---
 # tasks file for web
-
-- name: ProdTomcat
-  hosts: prod
-  become: yes
-
-  tasks:
   - name: Ensure tomcat is present
     apt: name=tomcat9 state=present
 
