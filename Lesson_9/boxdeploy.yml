@@ -5,3 +5,10 @@
 
   roles:
    - build
+
+- name: web_server configuration
+  hosts: web
+  become: yes
+
+  roles:
+  - web
