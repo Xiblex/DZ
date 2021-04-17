@@ -3,4 +3,7 @@
 
 - name: install packages
   apt:
-    pkg: {{ packages }}
+    name: {{ item }}
+    state: presents
+  with_items:
+    - {{package}}
