@@ -1,2 +1,7 @@
 ---
 # vars file for build
+
+boxrepo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+boxdir: /boxfuse
+
+packages: [ 'wget' , 'maven' , 'git' , 'python-pexpect']
