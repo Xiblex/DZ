@@ -10,7 +10,7 @@ RUN apt-get install openjdk-11-jre-headless maven git wget  -y
 RUN mkdir /usr/local/tomcat
 RUN wget https://github.com/apache/tomcat/archive/refs/tags/9.0.44.tar.gz -O /tmp/tomcat.tar.gz
 RUN cd /tmp && tar xvfz tomcat.tar.gz
-RUN cp -Rv /tmp/tomcat-9.0-doc/* /usr/local/tomcat/
+RUN cp -Rv /tmp/tomcat-9.0.44/* /usr/local/tomcat/
 #creat folder for build and download app
 RUN mkdir /boxfuse
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /boxfuse
