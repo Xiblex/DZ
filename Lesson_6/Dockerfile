@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install openjdk-11-jre-headless maven git wget  -y
 #install tomcat9
 RUN mkdir /usr/local/tomcat
-RUN wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.44/bin/apache-tomcat-9.0.44.tar.gz -O /tmp/tomcat.tar.gz
+RUN wget https://apache-mirror.rbc.ru/pub/apache/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45-fulldocs.tar.gz -O /tmp/tomcat.tar.gz
 RUN cd /tmp && tar xvfz tomcat.tar.gz
 RUN cp -Rv /tmp/apache-tomcat-9.0.44/* /usr/local/tomcat/
 #creat folder for build and download app
