@@ -1,0 +1,55 @@
+pipeline {
+    agent none    
+        
+    stages {
+        stage('Prepare container') {
+            agent {
+                docker {
+                    image '35.228.152.23:8123/builddocker' 
+                    args '--privileged -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
+                }
+			}	
+			stages {
+				stage('git clone an Docker for prod'){
+					steps {
+						sh ' rm -rf boxfuse && git clone https://github.com/Xiblex/boxfuse'
+					}
+				}
+				stage('mvn'){
+					steps {
+						sh 'cd ./boxfuse && mvn package'
+					}
+				}	
+				stage ('build docker image and push'){
+					steps {
+						script {
+							def dockerImage = docker.build("35.228.152.23:8123/proddocker:latest", "-f ./boxfuse/Dockerfile .")
+							docker.withRegistry('http://35.228.152.23:8123', '	f50040ec-8ea9-4cb5-84d6-5ae6e494fa74') {
+                                dockerImage.push()
+                            }
+						}
+					}
+			
+		    	}
+			}    
+		}	
+		stage ('pull and run dockerprod'){
+		    agent any
+		        steps {
+		            withCredentials([usernamePassword(credentialsId: '200d9c92-936f-4e46-9d40-3cd492812397', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+				        script {
+				            def remote = [:]
+                            remote.name = 'prod'
+                            remote.host = '35.228.210.10'
+                            remote.user = "${USERNAME}"
+                            remote.password = "${PASSWORD}"
+                            remote.allowAnyHosts = true
+                            sshCommand remote: remote, command: "docker pull 35.228.152.23:8123/proddocker:latest"
+                            sshCommand remote: remote, command: "docker run -d -p 8080:8080 35.228.152.23:8123/proddocker:latest"
+				        }    
+				    }
+	    	    }
+		}
+	}
+}		     
+  
